@@ -1,0 +1,14 @@
+name: Testing  # Name of the GitHub Actions workflow
+
+on: push  # Trigger the workflow on a push event
+
+jobs:  # Define one or more jobs within the workflow
+  test_project:  # Name of the job
+    runs-on: ubuntu-latest  # Operating system for the job
+
+    steps:  # Define a sequence of steps for the job
+    - uses: actions/checkout@v2  # Check out the repository to the runner
+    - name: Run Django unit tests  # Displayed name for this step
+      run: |  # Run the following shell commands
+        pip3 install --user django  # Install Django using pip
+        python3 manage.py test  # Run Django unit tests using manage.py
